@@ -1,0 +1,30 @@
+body {
+    background-color:black;
+    color: white;
+    font-family: "Roboto Mono", monospace;
+    
+
+}
+
+p {
+    margin-left: 10px;
+}
+
+.buttons {
+    background-color: black;
+    border: 2px solid white;
+    height: 180px;
+    width: 180px;
+    border-radius: 200px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 10px;
+
+}
+
+.rock-image,.paper-image,.scissors-image {
+    height: 100px;
+    width: 100px;
+
+}
+
