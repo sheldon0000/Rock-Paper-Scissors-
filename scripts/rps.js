@@ -1,3 +1,12 @@
+
+const score = {
+    wins:0,
+    loses:0,
+    ties:0
+};
+
+
+
 function randomMove(){
         const ranmdomNumber = Math.random();
 
@@ -55,8 +64,18 @@ function randomMove(){
 
         }
 
+            if(result === 'You win'){
+                score.wins++;
+            } else if(result === 'You lose'){
+                score.loses++;
+            } else if(result === 'Tie'){
+                score.ties++
+            }
+
          alert(`You picked ${playerMove} - Computer picked ${computerMove} 
-         
+
+Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}
+
 ${result}`);
 
 }
@@ -75,4 +94,9 @@ document.querySelector('.js-scissors-button')
     .addEventListener('click',()=>{
         playGame('scissors');
     });
+
+// document.querySelector('.js-reset-button')
+//     .addEventListener('click',()=>{
+        
+//     });
 

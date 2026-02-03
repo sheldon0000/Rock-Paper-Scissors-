@@ -28,3 +28,18 @@ p {
 
 }
 
+.reset-div {
+    margin-left: 10px;
+    margin-top: 50px;
+
+}
+
+.reset-button {
+    padding: 10px 25px;
+    font-size: 16px;
+    font-family: "Roboto Mono", monospace;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
