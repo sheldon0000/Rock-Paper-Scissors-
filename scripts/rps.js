@@ -1,10 +1,17 @@
 
-const score = {
-    wins:0,
-    loses:0,
-    ties:0
-};
+const score = JSON.parse(localStorage.getItem('score')) || {
 
+    wins : 0,
+    loses : 0,
+    ties : 0
+    
+}
+
+// if(score === null){
+//     score.wins = 0,
+//     score.loses = 0,
+//     score.ties = 0
+// }
 
 
 function randomMove(){
@@ -78,7 +85,11 @@ Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}
 
 ${result}`);
 
+localStorage.setItem('score', JSON.stringify(score));
+
 }
+
+
 
 document.querySelector('.js-rock-button')
     .addEventListener('click',()=>{
