@@ -79,38 +79,63 @@ function randomMove(){
                 score.ties++
             }
 
-         alert(`You picked ${playerMove} - Computer picked ${computerMove} 
+//          alert(`You picked ${playerMove} - Computer picked ${computerMove} 
 
-Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}
+// Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}
 
-${result}`);
+// ${result}`);
+
+
+        document.querySelector('.js-result')
+            .innerHTML = result;
+
+        document.querySelector('.js-moves')
+            .innerHTML = `
+            You picked 
+            <img class="moves-image" src="img/${playerMove}-emoji.png"> - 
+            Computer picked <img class="moves-image" src="img/${computerMove}-emoji.png"> 
+            `
+        updateScore();
 
 localStorage.setItem('score', JSON.stringify(score));
 
 }
 
+function updateScore(){
+    document.querySelector('.js-score')
+        .innerHTML = 
+        `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}
+        `;
+}
 
 
-document.querySelector('.js-rock-button')
-    .addEventListener('click',()=>{
-        playGame('rock');
-    });
+buttons();
 
-document.querySelector('.js-paper-button')
-    .addEventListener('click',()=>{
-        playGame('paper');
-    });
+function buttons(){
 
-document.querySelector('.js-scissors-button')
-    .addEventListener('click',()=>{
-        playGame('scissors');
-    });
+    document.querySelector('.js-rock-button')
+        .addEventListener('click',()=>{
+            playGame('rock');
+        });
 
-document.querySelector('.js-reset-button')
-    .addEventListener('click',()=>{
-        score.wins = 0,
-        score.loses = 0,
-        score.ties = 0
-        localStorage.removeItem('score');
-    });
+    document.querySelector('.js-paper-button')
+        .addEventListener('click',()=>{
+            playGame('paper');
+        });
+
+    document.querySelector('.js-scissors-button')
+        .addEventListener('click',()=>{
+            playGame('scissors');
+        });
+
+    document.querySelector('.js-reset-button')
+        .addEventListener('click',()=>{
+            score.wins = 0,
+            score.loses = 0,
+            score.ties = 0
+            localStorage.removeItem('score');
+            updateScore();
+            
+        });
+}
 
