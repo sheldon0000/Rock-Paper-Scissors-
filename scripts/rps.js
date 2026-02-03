@@ -4,7 +4,7 @@ const score = JSON.parse(localStorage.getItem('score')) || {
     wins : 0,
     loses : 0,
     ties : 0
-    
+
 }
 
 // if(score === null){
@@ -106,8 +106,11 @@ document.querySelector('.js-scissors-button')
         playGame('scissors');
     });
 
-// document.querySelector('.js-reset-button')
-//     .addEventListener('click',()=>{
-        
-//     });
+document.querySelector('.js-reset-button')
+    .addEventListener('click',()=>{
+        score.wins = 0,
+        score.loses = 0,
+        score.ties = 0
+        localStorage.removeItem('score');
+    });
 
