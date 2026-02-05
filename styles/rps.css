@@ -10,8 +10,25 @@ p {
     margin-left: 10px;
 }
 
+.button-div {
+    display: inline-block;
+    padding: 10px;
+}
+
+
 .buttons {
     background-color: black;
+    border: 2px solid white;
+    height: 180px;
+    width: 180px;
+    border-radius: 200px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 10px;
+
+}
+.buttons:hover {
+    background-color: rgb(18, 18, 18);
     border: 2px solid white;
     height: 180px;
     width: 180px;
@@ -27,14 +44,14 @@ p {
     width: 100px;
 
 }
-
-.reset-div {
-    margin-left: 10px;
-    margin-top: 50px;
+.rock-image,.paper-image,.scissors-image {
+    height: 100px;
+    width: 100px;
 
 }
 
-.reset-button {
+
+.reset-button,.auto-play-button {
     padding: 10px 25px;
     font-size: 16px;
     font-family: "Roboto Mono", monospace;
@@ -46,8 +63,17 @@ p {
 .result,.moves,.score {
     font-family: "Roboto Mono", monospace;
     font-size: 16px;
-    padding: 20px 0px;
+    /* padding: 5px; */
 
+}
+
+.score {
+    margin-top: 50px;
+}
+
+.reset-autoplay-button {
+    margin-left: 10px;
+    margin-top: 30px;
 }
 
 

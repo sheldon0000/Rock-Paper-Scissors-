@@ -7,11 +7,24 @@ const score = JSON.parse(localStorage.getItem('score')) || {
 
 }
 
-// if(score === null){
-//     score.wins = 0,
-//     score.loses = 0,
-//     score.ties = 0
-// }
+/*
+
+ if(score === null){
+     score.wins = 0,
+     score.loses = 0,
+     score.ties = 0
+ }
+
+ OR
+
+ if(!score){
+     score.wins = 0,
+     score.loses = 0,
+     score.ties = 0
+ }
+
+
+*/
 
 
 function randomMove(){
@@ -95,9 +108,9 @@ function randomMove(){
             <img class="moves-image" src="img/${playerMove}-emoji.png"> - 
             Computer picked <img class="moves-image" src="img/${computerMove}-emoji.png"> 
             `
-        updateScore();
+            updateScore();
 
-localStorage.setItem('score', JSON.stringify(score));
+        localStorage.setItem('score', JSON.stringify(score));
 
 }
 
@@ -137,5 +150,30 @@ function buttons(){
             updateScore();
             
         });
+
+        let isPlaying = false;
+        let intervalId;
+
+    document.querySelector('.js-auto-play-button')
+        .addEventListener('click',()=>{
+
+            if(!isPlaying){
+
+            intervalId = setInterval(()=>{
+                    const computerMove = randomMove();
+                    playGame(computerMove);
+
+                },1000)
+                isPlaying = true;
+
+            } else {
+                
+                clearInterval(intervalId);
+
+                isPlaying = false;
+            }
+
+
+        })
 }
 
