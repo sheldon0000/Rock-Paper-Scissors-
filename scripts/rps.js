@@ -157,22 +157,54 @@ function buttons(){
     document.querySelector('.js-auto-play-button')
         .addEventListener('click',()=>{
 
-            if(!isPlaying){
+            document.querySelector('.js-option-pop')
+                .innerHTML = `Are you sure you want to Play 
+                <button class = "js-yes-button yes-button">Yes</button>
+                <button class = "js-no-button no-button">No</button>`
 
-            intervalId = setInterval(()=>{
-                    const computerMove = randomMove();
-                    playGame(computerMove);
+                // document.querySelector('.js-no-button')
+                //     .addEventListener('click',()=>{
+                //         document.querySelector('.js-option-pop')
+                //             .innerHTML = '';
+                    
+                //     })
 
-                },1000)
-                isPlaying = true;
+                document.querySelector('.js-yes-button')
+                    .addEventListener('click',()=>{
+                        if(!isPlaying){
 
-            } else {
-                
-                clearInterval(intervalId);
+                        intervalId = setInterval(()=>{
+                                const computerMove = randomMove();
+                                playGame(computerMove);
 
-                isPlaying = false;
-            }
+                            },1000)
+                            isPlaying = true;
+                            document.querySelector('.js-yes-button')
+                                .innerHTML = 'Stop';
 
+                        } else {
+
+                            clearInterval(intervalId);
+
+                            isPlaying = false;
+
+                            document.querySelector('.js-yes-button')
+                                .innerHTML = 'Yes';
+                        }
+
+                    })
+
+                    document.querySelector('.js-no-button')
+                    .addEventListener('click',()=>{
+                        document.querySelector('.js-option-pop')
+                            .innerHTML = '';
+                            clearInterval(intervalId);
+
+                            isPlaying = false;
+
+                    
+                    })
+            
 
         })
 }
