@@ -82,3 +82,12 @@ p {
     width: 50px;
 }
 
+.yes-button,.no-button {
+    font-family: "Roboto Mono", monospace;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 5px 15px;
+    border: none;
+    cursor: pointer;
+}
+
