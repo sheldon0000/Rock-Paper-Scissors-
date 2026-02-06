@@ -154,13 +154,15 @@ function buttons(){
         let isPlaying = false;
         let intervalId;
 
-    document.querySelector('.js-auto-play-button')
-        .addEventListener('click',()=>{
+   const autoPlay = document.querySelector('.js-auto-play-button');
+   
+        autoPlay.addEventListener('click',()=>{
 
-            document.querySelector('.js-option-pop')
-                .innerHTML = `Are you sure you want to Play 
-                <button class = "js-yes-button yes-button">Yes</button>
-                <button class = "js-no-button no-button">No</button>`
+          const optionElement = document.querySelector('.js-option-pop');
+                                   
+          optionElement.innerHTML = `Are you sure you want to Play 
+                                    <button class = "js-yes-button yes-button">Yes</button>
+                                    <button class = "js-no-button no-button">No</button>`
 
                 // document.querySelector('.js-no-button')
                 //     .addEventListener('click',()=>{
@@ -169,8 +171,9 @@ function buttons(){
                     
                 //     })
 
-                document.querySelector('.js-yes-button')
-                    .addEventListener('click',()=>{
+              const yesButton = document.querySelector('.js-yes-button');
+              
+              yesButton.addEventListener('click',()=>{
                         if(!isPlaying){
 
                         intervalId = setInterval(()=>{
@@ -178,9 +181,10 @@ function buttons(){
                                 playGame(computerMove);
 
                             },1000)
+
                             isPlaying = true;
-                            document.querySelector('.js-yes-button')
-                                .innerHTML = 'Stop';
+
+                            yesButton.innerHTML = 'Stop';
 
                         } else {
 
@@ -188,21 +192,20 @@ function buttons(){
 
                             isPlaying = false;
 
-                            document.querySelector('.js-yes-button')
-                                .innerHTML = 'Yes';
+                            yesButton .innerHTML = 'Yes';
                         }
 
                     })
 
-                    document.querySelector('.js-no-button')
-                    .addEventListener('click',()=>{
-                        document.querySelector('.js-option-pop')
-                            .innerHTML = '';
-                            clearInterval(intervalId);
+                 const noButton = document.querySelector('.js-no-button');
+                 
+                 noButton.addEventListener('click',()=>{
+                    optionElement.innerHTML = '';
 
-                            isPlaying = false;
+                    clearInterval(intervalId);
 
-                    
+                    isPlaying = false;
+
                     })
             
 
