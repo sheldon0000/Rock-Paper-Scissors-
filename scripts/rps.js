@@ -155,7 +155,7 @@ function buttons(){
         let intervalId;
 
    const autoPlay = document.querySelector('.js-auto-play-button');
-   
+
         autoPlay.addEventListener('click',()=>{
 
           const optionElement = document.querySelector('.js-option-pop');
